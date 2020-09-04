@@ -48,6 +48,7 @@ html,body{
     width: 300px;
     height: 100%;
     background: rgb(225, 225, 225);
+    float: left;
 }
 
 .topo{
@@ -81,4 +82,16 @@ html,body{
 
 .info-localizacao{
     padding: 10px;
+}
+
+.box-usuario-like{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 400px;
+    background: rgb(225, 225, 225);
+    line-height: 400px;
+    text-align: center;
 }

@@ -25,6 +25,7 @@
             $_SESSION['localizacao'] = $info['localizacao'];
             $_SESSION['latitude'] = $info['lat_cord'];
             $_SESSION['longitude'] = $info['long_cord'];
+            $_SESSION['sexo'] = $info['sexo'];
         }
 
         public static function getUserId($email){
@@ -36,6 +37,15 @@
 
         public static function deslogar(){
             session_destroy();
+        }
+
+        public static function pegaUsuarioNovo(){
+            if ($_SESSION['sexo'] == 'masculino') {
+                $pegaUsuarioRandom = MySql::conectar()->prepare("SELECT * FROM usuarios WHERE sexo != 'masculino' ORDER BY RAND() LIMIT 1");
+                $pegaUsuarioRandom->execute();
+                $pegaUsuarioRandom = $pegaUsuarioRandom->fetch();
+                return $pegaUsuarioRandom;
+            }
         }
     }
 

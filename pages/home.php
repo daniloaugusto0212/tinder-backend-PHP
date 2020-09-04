@@ -32,6 +32,12 @@
             <p>Localização: <?= $_SESSION['localizacao'] ?></p>
         </div>   
     </div>
+
+    <div class="box-usuario-like">
+        <div class="boox-usuario-nome">
+            <h2><?= Usuarios::pegaUsuarioNovo()['nome']; ?></h2>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
 
