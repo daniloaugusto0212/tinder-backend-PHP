@@ -1,26 +1,31 @@
 <?php
+	
+	session_start();
 
-    session_start();
-    
-    define('INCLUDE_PATH', 'http://localhost/tinder-backend-PHP/');
+	define('INCLUDE_PATH','http://localhost/tinder/');
 
-    $autoLoad = function ($class){
-        include($class.'.php');
-    };
+	define('ACTION_LIKE','1');
+	define('ACTION_DISLIKE','0');
 
-    spl_autoload_register($autoLoad);
+	$autoLoad = function($class){
+		include($class.'.php');
+	};
 
-    if (!isset($_SESSION['login']) && $_GET['url'] != 'login') {
-        header('Location: '.INCLUDE_PATH.'login');
-        die();
-    }
+	spl_autoload_register($autoLoad);
 
-    $url = isset($_GET['url']) ? explode('/', $_GET['url'])[0] : 'home';
+	if(!isset($_SESSION['login']) && $_GET['url'] != 'login'){
+		header('Location: '.INCLUDE_PATH.'login');
+		die();
+	}
 
-    if (file_exists('pages/'.$url.'.php')) {
-        include('pages/'.$url.'.php');
-    }else{
-        die("Esta página não existe!");
-    }
+	$url = isset($_GET['url']) ? explode('/', $_GET['url'])[0] : 'home';
+
+	if(file_exists('pages/'.$url.'.php')){
+		include('pages/'.$url.'.php');
+	}else{
+		die('Não existe nenhuma página com este nome!');
+	}
+
+
 
 ?>
