@@ -2,7 +2,7 @@
 	
 	session_start();
 
-	define('INCLUDE_PATH','http://localhost/tinder/');
+	define('INCLUDE_PATH','http://localhost/tinder-backend-php/');
 
 	define('ACTION_LIKE','1');
 	define('ACTION_DISLIKE','0');
